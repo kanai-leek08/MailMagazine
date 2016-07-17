@@ -1,0 +1,63 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  margin: 30px;
+}
+
+.title {
+  border-bottom: solid gray 5px;
+  padding-bottom: 3px;
+}
+
+section {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  margin: 5px;
+  box-shadow: 2px 2px 2px 2px #E2E2E2;
+  padding: 10px;
+  cursor: pointer;
+  transition-property: all;
+  transition-duration: 0.1s;
+  transition-timing-function: linear;
+  &:hover {
+    top: -3px;
+    left: -3px;
+    box-shadow: 3px 3px 3px 1px #C2C2C2;
+    background-color: #fffbeb;
+  }
+}
+
+.body {
+  color: gray;
+  img {
+    width: 250px;
+  }
+}
+
+#editor {
+  height: 600px;
+  .preview {
+    color: gray;
+    display: inline-block;
+    width: 49%;
+    height: 100%;
+    overflow: scroll;
+    border: #cccccc solid 1px;
+    padding: 10px;
+    textarea {
+      height: 100%;
+      border: none;
+    }
+    img {
+      max-width: 100%;
+      width: 250px;
+    }
+  }
+}
+
+.form-group {
+  padding-top: 20px;
+}

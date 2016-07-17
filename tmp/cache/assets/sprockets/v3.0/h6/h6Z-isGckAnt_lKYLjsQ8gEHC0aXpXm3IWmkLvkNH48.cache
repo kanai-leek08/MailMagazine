@@ -1,0 +1,7 @@
+I"i(function() {
+  $('.card').on('click', function() {
+    return alert('hoge');
+  });
+
+}).call(this);
+:ET

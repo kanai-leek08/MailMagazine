@@ -1,0 +1,9 @@
+I"´(function() {
+  $(document).on('click', '.card', function() {
+    return location.href = $('.toDetail', this(function() {
+      return attr('href');
+    }));
+  });
+
+}).call(this);
+:ET

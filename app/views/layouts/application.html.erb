@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MailMagazine</title>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'vue.min.js', 'application', 'data-turbolinks-track': 'reload' %>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.js'></script>
+    <script src="https://npmcdn.com/axios/dist/axios.min.js"></script>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+    <%= yield %>
+  </body>
+</html>

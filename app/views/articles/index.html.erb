@@ -1,0 +1,28 @@
+<header>
+<h1>AW通信 WEB版</h1>
+</header>
+<%- model_class = Article -%>
+<% if Rails.env == 'production' %>
+  <script src="/bpush_loader.js"></script>
+<% end %>
+
+<%= form_tag("/", method: "get") do %>
+  <%= text_field_tag(:query, params[:query]) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% @articles.each do |article| %>
+  <section>
+    <%= link_to '', article_path(article), :class => "toDetail" %>
+    <div class="title">
+      <h2><%= article.title %></h2>
+      <span><%= article.created_at.strftime("%Y/%m/%d") %> <%= article.owner %></span>
+    </div>
+
+    <dl class="body">
+      <dd><%= continue(markdown(article.body)).html_safe %></dd>
+    </dl>
+  </section>
+<% end %>
+
+<%= paginate(@articles) %>

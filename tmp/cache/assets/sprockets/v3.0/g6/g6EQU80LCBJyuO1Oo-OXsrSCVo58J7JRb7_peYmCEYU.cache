@@ -1,0 +1,7 @@
+I"m(function() {
+  $('.toDetail').on('click', function() {
+    return alert('hoge');
+  });
+
+}).call(this);
+:ET

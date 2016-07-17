@@ -1,0 +1,13 @@
+<%- model_class = Article -%>
+<div class="title">
+  <h2><%= @article.title %></h2><span><%= @article.created_at.strftime("%Y/%m/%d") %> <%= @article.owner %></span>
+</div>
+
+<dl class="body">
+  <dd><%= markdown(@article.body) %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              articles_path, :class => 'btn'  %>
+</div>

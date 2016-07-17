@@ -1,0 +1,7 @@
+I"‚(function() {
+  $(document).on('click', '.card', function() {
+    return console.log($('.toDetail', this));
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @s3image.title %>
+</p>
+
+<p>
+  <strong>File name:</strong>
+  <%= @s3image.file_name %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @s3image.comment %>
+</p>
+
+<%= link_to 'Edit', edit_s3image_path(@s3image) %> |
+<%= link_to 'Back', s3images_path %>
