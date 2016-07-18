@@ -27,16 +27,15 @@ class S3imagesController < ApplicationController
   # POST /s3images
   # POST /s3images.json
   def create
-    @s3image = S3image.new(s3image_params)
     s3 = AWS::S3.new
-    bucket = s3.buckets['mailmagezineimage']
+    bucket = s3.buckets[backetName]
 
     file = s3image_params[:file]
     fileName = file.original_filename
 
     object = bucket.objects[fileName]
     object.write(file, :acl => :public_read)
-    imageUrl = "https://s3-ap-northeast-1.amazonaws.com/mailmagezineimage/#{fileName}"
+    imageUrl = "#{S3URL}/#{fileName}"
 
     render :json => {'imageUrl' => imageUrl}
   end
