@@ -11,23 +11,25 @@ describe 'Validation' do
   end
 end
 
-describe '四則演算' do
-  it '1 + 1 は 2 になること' do
-    expect(1 + 1).to eq 2
-  end
-  it '10 - 1 は 9 になること' do
-    expect(10 - 1).to eq 9
-  end
-end
-
-describe 'func search' do
-  FactoryGirl.create_list(:article, 11)
-  it '11件以上データがある場合 10件になること' do
+describe 'function search and paging' do
+  it 'ページング確認：11件以上データがある場合 10件になること' do
+    FactoryGirl.create_list(:article, 15)
     r = Article.search(1, '')
     expect(r.count).to eq 10
   end
-  it 'ページングが狙い通りの件数であること' do
+  it 'ページング確認：2ページ指定が適切なデータ数であること' do
+    FactoryGirl.create_list(:article, 15)
     r = Article.search(2, '')
+    expect(r.count).to eq 5
+  end
+  it '検索確認：titleかbodyにマッチするデータで絞り込まれること' do
+    FactoryGirl.create(:article, title: "this is title. ", body: 'this is body.')
+    FactoryGirl.create(:article, title: "this is hoge. ", body: 'this is fuga.')
+    r = Article.search(1, 'title')
     expect(r.count).to eq 1
+    r = Article.search(1, 'body')
+    expect(r.count).to eq 1
+    r = Article.search(1, 'this')
+    expect(r.count).to eq 2
   end
 end

@@ -66,4 +66,5 @@ gem 'aws-sdk', '~>1'
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
